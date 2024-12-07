@@ -41,12 +41,13 @@ local function unload(_bKeepOneFuelStack)
                 bDrop = false
                 _bKeepOneFuelStack = false
             elseif item and trashList[item.name] then
-                -- Jette les items indésirables
-                turtle.drop()
+                -- Supprime les items indésirables
+                turtle.dropDown() -- Jette dans le vide (supprime les items)
                 unloaded = unloaded + nCount
+                bDrop = false
             end
             if bDrop then
-                turtle.drop()
+                turtle.drop() -- Dépose dans le coffre
                 unloaded = unloaded + nCount
             end
         end
